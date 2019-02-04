@@ -1,6 +1,7 @@
 {
   "name": "angular-authguard",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "A simple angular project to showcase angular authguard capability",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -9,7 +10,12 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "private": true,
+  "author": "Jashanpreet Singh",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jashanbhullar/angular-authguard"
+  },
+  "license": "MIT",
   "dependencies": {
     "@angular/animations": "~7.2.0",
     "@angular/common": "~7.2.0",
