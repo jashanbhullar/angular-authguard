@@ -1,24 +1,25 @@
 .header {
-  background: url('../../../assets/images/banner1.jpg')no-repeat;
+  background: url('../../../assets/images/banner1.jpg') no-repeat;
   height: 100%;
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
+  color: #fff;
 
   .header-main {
     width: 30%;
     margin: 0 auto;
-
+    padding-top: 30px;
     h1 {
       font-size: 64px;
-      color: #FFFFFF;
+      color: #ffffff;
       text-align: center;
       padding-bottom: 0.8em;
     }
 
     .header-left-bottom {
       input {
-        &[type="text"] {
+        &[type='text'] {
           background: url('../../../assets/images/m.png') no-repeat 0px 5px;
           outline: none;
           font-size: 15px;
@@ -32,7 +33,7 @@
           display: inline-block;
         }
 
-        &[type="password"] {
+        &[type='password'] {
           background: url('../../../assets/images/l.png') no-repeat 0px 5px;
           outline: none;
           font-size: 15px;
@@ -46,9 +47,9 @@
           display: inline-block;
         }
 
-        &[type="submit"] {
+        &[type='submit'] {
           background: #ff3366;
-          color: #FFF;
+          color: #fff;
           font-size: 26px;
           padding: 0.3em 1.2em;
           width: 100%;
@@ -98,13 +99,13 @@
             height: 18px;
             outline: none;
             background: #fff;
-            border: 1px solid #6A67CE;
+            border: 1px solid #6a67ce;
           }
 
           input {
-            +i:after {
+            + i:after {
               content: '';
-              background: url("../../../assets/images/tick.png") no-repeat 5px 5px;
+              background: url('../../../assets/images/tick.png') no-repeat 5px 5px;
               top: -1px;
               left: -1px;
               width: 15px;
@@ -119,12 +120,11 @@
             position: absolute;
             left: -9999px;
 
-            &:checked+i:after {
+            &:checked + i:after {
               opacity: 1;
             }
           }
         }
-
 
         .forgot {
           float: right;
@@ -142,7 +142,6 @@
             }
           }
         }
-
       }
 
       .sign-up {
@@ -167,8 +166,8 @@
 
         a {
           &.face {
-            background: url('../../../assets/images/fac.png') no-repeat 12px 9px #3B62A3;
-            color: #FFF;
+            background: url('../../../assets/images/fac.png') no-repeat 12px 9px #3b62a3;
+            color: #fff;
             font-size: 16px;
             font-weight: 400;
             padding: 0 2em;
@@ -181,14 +180,14 @@
             font-family: 'Roboto Condensed', sans-serif;
 
             &:hover {
-              background: url('../../../assets/images/fac.png') no-repeat 12px 9px #0E387C;
+              background: url('../../../assets/images/fac.png') no-repeat 12px 9px #0e387c;
               transition: 0.5s all;
             }
           }
 
           &.twitt {
-            background: url('../../../assets/images/twitter.png') no-repeat 12px 9px #19B0E7;
-            color: #FFF;
+            background: url('../../../assets/images/twitter.png') no-repeat 12px 9px #19b0e7;
+            color: #fff;
             font-size: 16px;
             font-weight: 400;
             padding: 0 2.5em;
@@ -202,7 +201,7 @@
             font-family: 'Roboto Condensed', sans-serif;
 
             &:hover {
-              background: url('../../../assets/images/twitter.png') no-repeat 12px 9px #0192C7;
+              background: url('../../../assets/images/twitter.png') no-repeat 12px 9px #0192c7;
               transition: 0.5s all;
             }
           }
@@ -223,59 +222,61 @@
     left: 0;
     right: 0;
     text-align: center;
-    color: white;
   }
 }
 
 @media (max-width: 1024px) {
-  .header-main {
-    width: 48%;
+  .header {
+    .header-main {
+      width: 48%;
+    }
   }
 }
 
 @media (max-width: 768px) {
-  .header-left-bottom input {
-
-    &[type="text"],
-    &[type="password"] {
-      width: 80%;
-    }
-  }
-
-  .header-main {
-    width: 75%;
-  }
-
-  .header-social a {
-    &.twitt {
-      width: 21%;
+  .header {
+    .header-left-bottom input {
+      &[type='text'],
+      &[type='password'] {
+        width: 80%;
+      }
     }
 
-    &.face {
-      width: 27%;
+    .header-main {
+      width: 75%;
     }
-  }
 
-  .sign-up {
-    margin: 1em 0;
-  }
+    .header-social a {
+      &.twitt {
+        width: 21%;
+      }
 
-  .header-left-bottom input[type="submit"] {
-    font-size: 20px;
-  }
+      &.face {
+        width: 27%;
+      }
+    }
 
-  .sign-up h2 {
-    font-size: 18px;
-    width: 36px;
-    height: 36px;
-    line-height: 1.9em;
-  }
+    .sign-up {
+      margin: 1em 0;
+    }
 
-  .header-main {
-    padding: 60px 0px 12px;
+    .header-left-bottom input[type='submit'] {
+      font-size: 20px;
+    }
 
-    h1 {
-      font-size: 42px;
+    .sign-up h2 {
+      font-size: 18px;
+      width: 36px;
+      height: 36px;
+      line-height: 1.9em;
+    }
+
+    .header-main {
+      padding: 60px 0px 12px;
+
+      h1 {
+        font-size: 42px;
+      }
     }
   }
 }
