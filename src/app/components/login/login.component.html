@@ -1,9 +1,7 @@
 <div class="header">
   <div class="header-main">
     <h1>Classy Login Form</h1>
-
     <div class="header-left-bottom agileinfo">
-
       <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
         <input type="text" name="name" [(ngModel)]="user.username" placeholder="Username" required />
         <input type="password" value="Password" name="password" [(ngModel)]="user.password" placeholder="Password"
@@ -19,13 +17,21 @@
           </div>
           <div class="clear"> </div>
         </div>
-
-        <input type="submit" value="Login">
+        <input type="submit" [ngClass]="loginForm.invalid ? 'disabled': ''" value="Login">
+        <span [hidden]="!loginForm.dirty">
+          <span [hidden]="!loginForm.invalid">
+            <span [hidden]="!(loginForm.controls.name?.dirty && loginForm.controls.name?.invalid)">
+              Credentials required. Use 'admin' for username.
+            </span>
+            <span [hidden]="!(loginForm.controls.password?.dirty && loginForm.controls.password?.invalid)">
+              Use 'password' for password
+            </span>
+          </span>
+        </span>
       </form>
       <div class="sign-up">
         <h2>or</h2>
       </div>
-
       <div class="header-social wthree">
         <a href="#" class="face">
           <h5>Facebook</h5>
@@ -34,9 +40,7 @@
           <h5>Twitter</h5>
         </a>
       </div>
-
     </div>
-
   </div>
   <div class="copyright">
     <p>© 2016 Classy Login Form. All rights reserved | Design by <a href="http://w3layouts.com/" target="_blank">

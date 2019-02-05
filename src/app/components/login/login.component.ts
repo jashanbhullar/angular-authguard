@@ -13,24 +13,30 @@ export class LoginComponent {
     username: string;
     password: string;
     rememberMe: boolean;
-  } = {
-    username: 'admin',
-    password: 'password'
-  } as any;
+  } = {} as any;
 
-  constructor(private router: Router, private authService: AuthenticationService) {}
+  constructor(private router: Router, private authService: AuthenticationService) {
+    if (this.authService.checkToken) {
+      this.router.navigate(['/']);
+    }
+  }
 
   login(form: FormGroup) {
+    console.error(form);
     if (form.invalid) {
       return;
     }
     // this.authService.checkToken().then(value => console.error(value));
-    this.authService.login(this.user).then((value: { status: boolean; message: string }) => {
-      if (value.status) {
-        this.router.navigate(['/']);
-      } else {
-        // Set error message
-      }
-    });
+    this.authService
+      .login(this.user)
+      .then((value: { status: boolean; message: string }) => {
+        if (value.status) {
+          this.router.navigate(['/']);
+        } else {
+          // Set error message
+          alert('Invalid credentials');
+        }
+      })
+      .catch(err => alert('Error occurred'));
   }
 }

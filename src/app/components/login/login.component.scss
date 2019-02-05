@@ -1,3 +1,9 @@
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+
 .header {
   background: url('../../../assets/images/banner1.jpg') no-repeat;
   height: 100%;
