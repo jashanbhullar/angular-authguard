@@ -2,6 +2,7 @@
   <div class="header-main">
     <h1>Classy Login Form</h1>
     <div class="header-left-bottom agileinfo">
+      <!-- The form -->
       <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
         <input type="text" name="name" [(ngModel)]="user.username" placeholder="Username" required />
         <input type="password" value="Password" name="password" [(ngModel)]="user.password" placeholder="Password"
@@ -18,6 +19,7 @@
           <div class="clear"> </div>
         </div>
         <input type="submit" [ngClass]="loginForm.invalid ? 'disabled': ''" value="Login">
+        <!-- Error messages -->
         <span [hidden]="!loginForm.dirty">
           <span [hidden]="!loginForm.invalid">
             <span [hidden]="!(loginForm.controls.name?.dirty && loginForm.controls.name?.invalid)">
@@ -29,14 +31,15 @@
           </span>
         </span>
       </form>
+      <!-- The social logins. That do nothing -->
       <div class="sign-up">
         <h2>or</h2>
       </div>
       <div class="header-social wthree">
-        <a href="#" class="face">
+        <a class="face">
           <h5>Facebook</h5>
         </a>
-        <a href="#" class="twitt">
+        <a class="twitt">
           <h5>Twitter</h5>
         </a>
       </div>
