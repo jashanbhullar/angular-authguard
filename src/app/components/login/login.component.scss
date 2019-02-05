@@ -7,7 +7,7 @@
   color: #fff;
 
   .header-main {
-    width: 30%;
+    width: 35%;
     margin: 0 auto;
     padding-top: 30px;
 
@@ -164,6 +164,8 @@
 
       .header-social {
         text-align: center;
+        display: flex;
+        justify-content: center;
 
         a {
           &.face {
@@ -226,6 +228,7 @@
   }
 }
 
+
 @media (max-width: 1024px) {
   .header {
     .header-main {
@@ -236,48 +239,49 @@
 
 @media (max-width: 768px) {
   .header {
-    .header-left-bottom input {
-
-      &[type='text'],
-      &[type='password'] {
-        width: 80%;
-      }
-    }
-
     .header-main {
       width: 75%;
-    }
-
-    .header-social a {
-      &.twitt {
-        width: 21%;
-      }
-
-      &.face {
-        width: 27%;
-      }
-    }
-
-    .sign-up {
-      margin: 1em 0;
-    }
-
-    .header-left-bottom input[type='submit'] {
-      font-size: 20px;
-    }
-
-    .sign-up h2 {
-      font-size: 18px;
-      width: 36px;
-      height: 36px;
-      line-height: 1.9em;
-    }
-
-    .header-main {
       padding: 60px 0px 12px;
 
       h1 {
         font-size: 42px;
+      }
+
+
+      .header-left-bottom {
+
+        input {
+
+          &[type='text'],
+          &[type='password'] {
+            width: 80%;
+          }
+        }
+
+        .header-social a {
+          &.twitt {
+            width: 21%;
+          }
+
+          &.face {
+            width: 27%;
+          }
+        }
+
+        .sign-up {
+          margin: 1em 0;
+        }
+
+        .header-left-bottom input[type='submit'] {
+          font-size: 20px;
+        }
+
+        .sign-up h2 {
+          font-size: 18px;
+          width: 36px;
+          height: 36px;
+          line-height: 1.9em;
+        }
       }
     }
   }
