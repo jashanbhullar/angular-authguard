@@ -10,6 +10,7 @@
     width: 30%;
     margin: 0 auto;
     padding-top: 30px;
+
     h1 {
       font-size: 64px;
       color: #ffffff;
@@ -103,7 +104,7 @@
           }
 
           input {
-            + i:after {
+            +i:after {
               content: '';
               background: url('../../../assets/images/tick.png') no-repeat 5px 5px;
               top: -1px;
@@ -120,7 +121,7 @@
             position: absolute;
             left: -9999px;
 
-            &:checked + i:after {
+            &:checked+i:after {
               opacity: 1;
             }
           }
@@ -236,6 +237,7 @@
 @media (max-width: 768px) {
   .header {
     .header-left-bottom input {
+
       &[type='text'],
       &[type='password'] {
         width: 80%;
