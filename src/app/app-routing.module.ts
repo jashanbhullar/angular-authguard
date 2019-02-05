@@ -1,8 +1,8 @@
-import { NotFoundComponent } from './component/not-found/not-found.component';
-import { HomeComponent } from './components/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from '@/components/login/login.component';
+import { NotFoundComponent } from '@/component/not-found/not-found.component';
+import { HomeComponent } from '@/components/home/home.component';
 import { AuthGuard } from '@/guard/auth-guard.service';
 
 const routes: Routes = [
