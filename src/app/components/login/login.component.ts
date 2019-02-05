@@ -24,6 +24,7 @@ export class LoginComponent {
     if (form.invalid) {
       return;
     }
+    // this.authService.checkToken().then(value => console.error(value));
     this.authService.login(this.user).then((value: { status: boolean; message: string }) => {
       if (value.status) {
         this.router.navigate(['/']);

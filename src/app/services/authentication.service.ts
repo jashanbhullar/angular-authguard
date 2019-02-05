@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+const AUTH_TOKEN = 'auth-token';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private userLoggedIn = false;
+  private token: string;
 
   constructor(private http: HttpClient) {}
 
-  get getLoginStatus() {
-    return this.userLoggedIn;
+  get getToken() {
+    return this.token;
   }
 
   login(user: any) {
@@ -18,18 +19,54 @@ export class AuthenticationService {
       this.http
         .post('api/login', { ...user })
         .toPromise()
-        .then((value: { success: boolean; token: string; message: string }) => {
-          if (value.success) {
-            this.userLoggedIn = true;
+        .then((res: { success: boolean; token: string; message: string }) => {
+          const { success, message, token } = res;
+          if (success) {
+            this.token = token;
+            localStorage.setItem(AUTH_TOKEN, token);
             resolve({ status: true });
           } else {
-            reject({ status: false, message: value.message });
-            this.userLoggedIn = false;
+            resolve({ status: false, message });
+            this.logout();
           }
         })
         .catch(err => {
           reject({ status: false, message: 'Invalid credentials. Use "admin" and "password" ' });
+          this.logout();
         });
+    });
+  }
+
+  logout() {
+    localStorage.removeItem(AUTH_TOKEN);
+    this.token = null;
+  }
+
+  checkToken() {
+    const token = localStorage.getItem(AUTH_TOKEN);
+    if (!token) {
+      return Promise.resolve(false);
+    }
+    return new Promise((resolve, reject) => {
+      const headers = new HttpHeaders({
+        Authorization: `Bearer ${token}`
+      });
+      this.http
+        .get('api/checkToken', {
+          headers
+        })
+        .toPromise()
+        .then((res: { success: boolean }) => {
+          const { success } = res;
+          if (success) {
+            this.token = token;
+            resolve(true);
+          } else {
+            resolve(false);
+            this.logout();
+          }
+        })
+        .catch(err => reject('Some error occured'));
     });
   }
 }
