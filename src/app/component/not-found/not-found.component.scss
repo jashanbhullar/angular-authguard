@@ -1,0 +1,59 @@
+.notfound-main {
+  position: relative;
+  height: 100vh;
+
+  .notfound {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 520px;
+    width: 100%;
+    line-height: 1.4;
+    text-align: center;
+
+    .notfound-404 {
+      position: relative;
+      height: 240px;
+
+      h3 {
+        position: relative;
+        font-size: 16px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #262626;
+        margin: 0;
+        letter-spacing: 3px;
+        padding-left: 6px;
+      }
+
+      h1 {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 252px;
+        font-weight: 900;
+        margin: 0;
+        color: #262626;
+        text-transform: uppercase;
+        letter-spacing: -40px;
+        margin-left: -20px;
+
+        span {
+          text-shadow: -8px 0 0 #fff;
+        }
+      }
+
+      h2 {
+        font-family: cabin, sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        color: #000;
+        margin-top: 0;
+        margin-bottom: 25px;
+      }
+    }
+  }
+}
