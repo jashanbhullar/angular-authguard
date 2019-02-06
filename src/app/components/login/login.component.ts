@@ -22,7 +22,6 @@ export class LoginComponent {
   }
 
   login(form: FormGroup) {
-    console.error(form);
     if (form.invalid) {
       return;
     }
